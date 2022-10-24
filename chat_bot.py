@@ -56,7 +56,7 @@ features = cols
 def readn(nstr):
     engine = pyttsx3.init()
 
-    engine.setProperty('voice', "english+f5")
+    engine.setProperty('voice', "english+f6")
     engine.setProperty('rate', 130)
 
     engine.say(nstr)
@@ -242,8 +242,8 @@ def tree_to_code(tree, feature_names):
                 print("You may have ", present_disease[0])
                 print(description_list[present_disease[0]])
 
-                # readn(f"You may have {present_disease[0]}")
-                # readn(f"{description_list[present_disease[0]]}")
+                readn(f"You may have {present_disease[0]}")
+                readn(f"{description_list[present_disease[0]]}")
 
             else:
                 print("You may have ", present_disease[0], "or ", second_prediction[0])
@@ -252,9 +252,12 @@ def tree_to_code(tree, feature_names):
 
             # print(description_list[present_disease[0]])
             precution_list=precautionDictionary[present_disease[0]]
-            print("Take following measures : ")
+            print("Please take following measures : ")
+            readn(f"Please take following measures")
             for  i,j in enumerate(precution_list):
                 print(i+1,")",j)
+                readn(f"{j}")
+                
 
             # confidence_level = (1.0*len(symptoms_present))/len(symptoms_given)
             # print("confidence level is " + str(confidence_level))
